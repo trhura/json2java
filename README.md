@@ -7,7 +7,7 @@ Ruby script to generate java (schema/model) class (to use with gson.fromJson) fr
 Motivation
 ==========
 
-For mobile applications development, I use Gson `gson.fromJson(response, JavaClass)` to parse json response from web server. However, it is a dull task to manually create model classes for every json reponse. So, I wrote this script to generate those model classes automagically. 
+For android applications, I use Gson `gson.fromJson(response, JavaClass)` to parse and display json responses from web server. However, it is a dull task to manually create model classes for every json reponse. So, this script is written to generate those model classes automagically.
 
 
 Example Usage
@@ -65,7 +65,7 @@ trhura @ json2java $ curl -s "http://192.168.10.102:8000/api/v1/participant/7438
 ```
 
 ```java
-trhura @ json2java$ curl -s "http://192.168.10.102:8000/api/v1/participant/7438411/?username=trhura&api_key=fb3b645833893b64b23a9059a4523ac640eabdb0&accreditation_number=4504524644" | ./json2java.rb 
+trhura @ json2java$ curl -s "http://192.168.10.102:8000/api/v1/participant/7438411/?username=trhura&api_key=fb3b645833893b64b23a9059a4523ac640eabdb0&accreditation_number=4504524644" | ./json2java.rb
 public class ChangeThisClassName {
     @SerializedName("access_areas") private String accessAreas;
     @SerializedName("access_venues") private String accessVenues;
@@ -229,3 +229,8 @@ public class ChangeThisClassName {
 }
 ```
 
+TODO/Bugs
+==========
+
+* Handle `json` null value
+* for array values, change plural (key) name to singular (class) name
