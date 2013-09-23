@@ -99,7 +99,7 @@ class Hash
             visibility = "public"
             type = value.java_type(key) || key.camelcase(:upper)
             function = ( "get_" + key).camelcase(:lower)
-            ret += "#{indented2}#{visibility} #{type} #{function} {\n"
+            ret += "#{indented2}#{visibility} #{type} #{function} () {\n"
             ret += "#{indented3}return this.#{key.camelcase(:lower)};\n"
             ret += "#{indented2}}\n\n"
         end
